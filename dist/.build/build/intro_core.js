@@ -12,20 +12,16 @@
  * CLDR JavaScript Library v@VERSION @DATE MIT license © Rafael Xavier
  * http://git.io/h4lmVg
  */
-(function( factory ) {
+(function( root, factory ) {
 
 	if ( typeof define === "function" && define.amd ) {
 		// AMD.
-		define( [ "../cldr" ], factory );
-	} else if ( typeof module === "object" && typeof module.exports === "object" ) {
+		
 		// Node. CommonJS.
-		module.exports = factory( require( "../cldr" ) );
+		module.exports = factory();
 	} else {
 		// Global
-		factory( Cldr );
+		root.Cldr = factory();
 	}
 
-}(function( Cldr ) {
-
-	// Build optimization hack to avoid duplicating functions across modules.
-	var alwaysArray = Cldr._alwaysArray;
+}( this, function() {

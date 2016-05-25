@@ -16,8 +16,7 @@
 
 	if ( typeof define === "function" && define.amd ) {
 		// AMD.
-		define( [ "../cldr" ], factory );
-	} else if ( typeof module === "object" && typeof module.exports === "object" ) {
+		
 		// Node. CommonJS.
 		module.exports = factory( require( "../cldr" ) );
 	} else {
@@ -28,4 +27,9 @@
 }(function( Cldr ) {
 
 	// Build optimization hack to avoid duplicating functions across modules.
-	var alwaysArray = Cldr._alwaysArray;
+	var coreLoad = Cldr._coreLoad;
+	var jsonMerge = Cldr._jsonMerge;
+	var pathNormalize = Cldr._pathNormalize;
+	var resourceGet = Cldr._resourceGet;
+	var validatePresence = Cldr._validatePresence;
+	var validateTypePath = Cldr._validateTypePath;

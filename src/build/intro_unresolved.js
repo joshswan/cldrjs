@@ -19,7 +19,7 @@
 		define( [ "../cldr" ], factory );
 	} else if ( typeof module === "object" && typeof module.exports === "object" ) {
 		// Node. CommonJS.
-		module.exports = factory( require( "cldrjs" ) );
+		module.exports = factory( require( "../cldr" ) );
 	} else {
 		// Global
 		factory( Cldr );
@@ -34,4 +34,3 @@
 	var resourceGet = Cldr._resourceGet;
 	var validatePresence = Cldr._validatePresence;
 	var validateTypePath = Cldr._validateTypePath;
-
